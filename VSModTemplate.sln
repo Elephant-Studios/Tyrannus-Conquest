@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "CakeBuild\CakeBuild.csproj", "{7098A7CF-5F7B-45B2-B0D2-0F2896B388D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VSModTemplate", "VSModTemplate\VSModTemplate.csproj", "{C478568F-AFEC-406E-A888-3F177721A638}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TyrannusConquest", "TyrannusConquest\TyrannusConquest.csproj", "{C478568F-AFEC-406E-A888-3F177721A638}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
