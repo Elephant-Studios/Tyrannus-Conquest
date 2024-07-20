@@ -1,4 +1,4 @@
-﻿using static Ele.VSModTemplate.ModConstants;
+﻿using static Ele.TyrannusConquest.ModConstants;
 using Newtonsoft.Json;
 using Vintagestory.API.Common;
 using Ele.Configuration;

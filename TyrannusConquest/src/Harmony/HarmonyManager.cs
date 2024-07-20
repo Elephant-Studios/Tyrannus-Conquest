@@ -6,7 +6,7 @@ using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 using HarmonyLib;
 
-namespace Ele.VSModTemplate;
+namespace Ele.TyrannusConquest;
 
 public class HarmonyManager : ModSystem
 {

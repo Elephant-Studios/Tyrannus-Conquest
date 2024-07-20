@@ -1,9 +1,9 @@
+using Ele.Configuration;
 using System;
 using System.IO;
 using Vintagestory.API.Common;
-using Ele.VSModTemplate;
 
-namespace Ele.Configuration
+namespace Ele.TyrannusConquest.Configuration
 {
     //Courtesy of https://github.com/Craluminum-Mods/ && https://github.com/Chronolegionnaire/
     public static class ConfigHelper

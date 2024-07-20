@@ -1,5 +1,4 @@
-﻿using static Ele.VSModTemplate.ModConstants;
-using static Ele.VSModTemplate.ConfigManager;
+﻿using static Ele.TyrannusConquest.ModConstants;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -7,9 +6,10 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Common;
 using ConfigLib;
 using ImGuiNET;
-using Ele.Configuration;
+using Ele.TyrannusConquest.Configuration;
+using Ele.TyrannusConquest;
 
-namespace Ele.VSModTemplate
+namespace Ele.TyrannusConquest
 {
     //Courtesy of https://github.com/maltiez2/ && https://github.com/Craluminum-Mods/
     public class ConfigLibCompat
@@ -35,7 +35,7 @@ namespace Ele.VSModTemplate
             Edit(api, LoadedConfig, id);
         }
 
-        private void Edit(ICoreAPI api, ModConfig config, string id)
+        private void Edit(ICoreAPI api, Config config, string id)
         {
             ImGui.TextWrapped(Lang.Get(modDomain + ":mod-title"));
 

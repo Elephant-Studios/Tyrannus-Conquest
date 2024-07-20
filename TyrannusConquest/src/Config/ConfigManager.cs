@@ -7,11 +7,13 @@ using Vintagestory.API.Client;
 using Vintagestory.API.Server;
 using Vintagestory.API.Datastructures;
 using Vintagestory.ServerMods;
-using static Ele.VSModTemplate.ModConstants;
-using Ele.Configuration;
+using static Ele.TyrannusConquest.ModConstants;
+using Ele.TyrannusConquest.Configuration;
+using Ele.TyrannusConquest;
+using Ele.VSModTemplate;
 
 
-namespace Ele.VSModTemplate;
+namespace Ele.TyrannusConquest;
 
 //Courtesy of https://github.com/jayugg/
 public class ConfigManager : ModSystem

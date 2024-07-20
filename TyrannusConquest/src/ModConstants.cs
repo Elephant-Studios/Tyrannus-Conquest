@@ -1,11 +1,11 @@
 using System;
 
-namespace Ele.VSModTemplate
+namespace Ele.TyrannusConquest
 {
     public static class ModConstants
     {
-        public const string modName = "VSModTemplate"; //<--Cannot contain spaces
-        public const string modDomain = "vsmodtemplate"; //<--Cannot contain spaces
+        public const string modName = "TyrannusConquest"; //<--Cannot contain spaces
+        public const string modDomain = "tyrconquest"; //<--Cannot contain spaces
         public const string mainChannel = $"{modDomain}:main";
         public const string harmonyID = $"com.elephantstudios.{modDomain}";
 
