@@ -1,0 +1,201 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <OutputPath>bin\$(Configuration)\Mods\mod</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+<!-- Vintage Story's dependencies: won't be copied into output directory-->
+        <Reference Include="0Harmony.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="cairo-sharp.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="CommandLine.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/CommandLine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="csogg.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/csogg.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="csvorbis.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/csvorbis.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="DnsClient.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/DnsClient.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="JsonDiffPatch.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/JsonDiffPatch.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Mono.Cecil.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Mono.Cecil.Mdb.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Mono.Cecil.Pdb.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Mono.Cecil.Rocks.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Nat.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Mono.Nat.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MonoMod.Backports.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/MonoMod.Backports.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MonoMod.Core.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/MonoMod.Core.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MonoMod.Iced.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/MonoMod.Iced.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MonoMod.ILHelpers.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/MonoMod.ILHelpers.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="MonoMod.Utils.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/MonoMod.Utils.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Open.Nat.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/Open.Nat.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Audio.OpenAL.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Audio.OpenAL.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Compute.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Compute.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Core.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Core.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Graphics.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Graphics.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Input.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Input.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Mathematics.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Mathematics.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Windowing.Common.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Windowing.Common.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Windowing.Desktop.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Windowing.Desktop.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="OpenTK.Windowing.GraphicsLibraryFramework.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/OpenTK.Windowing.GraphicsLibraryFramework.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="protobuf-net.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SharpAvi.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/SharpAvi.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SharpAvi.SkiaSharp.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/SharpAvi.SkiaSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SkiaSharp.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/SkiaSharp.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SQLitePCLRaw.core.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/SQLitePCLRaw.core.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Drawing.Common.dll">
+            <HintPath>$(VINTAGE_STORY)/Lib/System.Drawing.Common.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+<!-- Vintage Story's own libraries: won't be copied into output directory-->
+        <Reference Include="ModMaker.dll">
+            <HintPath>$(VINTAGE_STORY)/ModMaker.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VSCreativeMod.dll">
+            <HintPath>$(VINTAGE_STORY)/Mods/VSCreativeMod.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VSEssentials.dll">
+            <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VSSurvivalMod.dll">
+            <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Vintagestory.dll">
+            <HintPath>$(VINTAGE_STORY)/Vintagestory.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VintagestoryAPI.dll">
+            <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="VintagestoryLib.dll">
+            <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+<!-- Third-party mod dependencies -->
+        <Reference Include="configlib">
+            <HintPath>..\configlib.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="VSImGui">
+            <HintPath>..\VSImGui.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="ImGui.NET">
+            <HintPath>..\VImGui.NET.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Content Include="assets\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="modinfo.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>
