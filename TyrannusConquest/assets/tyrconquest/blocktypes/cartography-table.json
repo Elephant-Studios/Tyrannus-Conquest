@@ -1,7 +1,7 @@
 {
 	"code": "cartography-table",
-	"class": "kscartographytable.cartography-table",
-    "entityClass": "kscartographytable.cartography-table-entity",
+	"class": "cartography-table",
+    "entityClass": "cartography-table-entity",
 	"blockmaterial": "wood",
 	"creativeinventory": { "general": ["*"], "blocks": ["*"] },
 	"texturesByType": {

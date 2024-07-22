@@ -1,21 +1,21 @@
 ﻿using static Ele.TyrannusConquest.ModConstants;
 using System.Reflection;
 using HarmonyLib;
-using Ele.TyrannusConquest.CartographyTable.BlockEntities;
-using Ele.TyrannusConquest.CartographyTable.Blocks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
+using Ele.Configuration;
 
 namespace Ele.TyrannusConquest
 {
     [HarmonyPatch]
-    public class TyrConquestModSystem : ModSystem
+    public class ModMain : ModSystem
     {
         private ICoreAPI _api = null!;
         private ICoreServerAPI _sapi = null!;
         private ICoreClientAPI _capi = null!;
         public Harmony harmony;
+        public static ModConfig LoadedConfig;
         protected const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
         public static bool purgeWpGroups = false;
 
@@ -31,8 +31,13 @@ namespace Ele.TyrannusConquest
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterBlockEntityClass(Mod.Info.ModID + ".cartography-table-entity", typeof(BlockEntityCartographyTable));
-            api.RegisterBlockClass(Mod.Info.ModID + ".cartography-table", typeof(BlockCartographyTable));
+            LoadedConfig = ConfigHelper.ReadConfig<ModConfig>(api);
+            api.RegisterBlockEntityClass("cartography-table-entity", typeof(BlockEntityCartographyTable));
+            api.RegisterBlockClass("cartography-table", typeof(BlockCartographyTable));
+            /*
+             * "tyrconquest.cartography-table",
+             * "entityClass": "tyrconquest.cartography-table-entity",
+             */
         }
         public override void AssetsFinalize(ICoreAPI api)
         {

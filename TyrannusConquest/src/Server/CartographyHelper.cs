@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ele.TyrannusConquest.CartographyTable.GameContent;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
-namespace Ele.TyrannusConquest.CartographyTable.Utilities
+namespace Ele.TyrannusConquest
 {
     public class CartographyHelper {
         ICoreServerAPI CoreServerAPI;
@@ -83,17 +82,17 @@ namespace Ele.TyrannusConquest.CartographyTable.Utilities
 
             if (onlyOnUserMap.Count > 0 || onBothMapsWithChanges.Count > 0 || onlyOnSharedMapBySameUser.Count > 0) {
                 if (onlyOnUserMap.Count > 0) {
-                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-new-waypoints-count", onlyOnUserMap.Count), EnumChatType.Notification);
+                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-new-waypoints-count", onlyOnUserMap.Count), EnumChatType.Notification);
                 }
                 if (onBothMapsWithChanges.Count > 0) {
-                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-edited-waypoints-count", onBothMapsWithChanges.Count), EnumChatType.Notification);
+                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-edited-waypoints-count", onBothMapsWithChanges.Count), EnumChatType.Notification);
                 }
                 if (onlyOnSharedMapBySameUser.Count > 0) {
-                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-deleted-waypoints-count", onlyOnSharedMapBySameUser.Count), EnumChatType.Notification);
+                    CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-deleted-waypoints-count", onlyOnSharedMapBySameUser.Count), EnumChatType.Notification);
                 }
                 player.Entity.World.PlaySoundAt(new AssetLocation("game:sounds/effect/writing"),player);
             } else {
-                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-table-map-up-to-date"), EnumChatType.Notification);
+                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-table-map-up-to-date"), EnumChatType.Notification);
             }
             return sharedWaypoints;
         }
@@ -141,10 +140,10 @@ namespace Ele.TyrannusConquest.CartographyTable.Utilities
             });
 
             if (onlyOnSharedMapByOtherUser.Count > 0 || onBothMapsWithChanges.Count > 0) {
-                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-updated-user-waypoints", onlyOnSharedMapByOtherUser.Count, onBothMapsWithChanges.Count), EnumChatType.Notification);
+                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-updated-user-waypoints", onlyOnSharedMapByOtherUser.Count, onBothMapsWithChanges.Count), EnumChatType.Notification);
                 player.Entity.World.PlaySoundAt(new AssetLocation("game:sounds/effect/writing"),player);
             } else {
-                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("kscartographytable:message-user-map-up-to-date"), EnumChatType.Notification);
+                CoreServerAPI.SendMessage(player, GlobalConstants.GeneralChatGroup, Lang.Get("tyrconquest:message-user-map-up-to-date"), EnumChatType.Notification);
             }
 
         }
@@ -165,7 +164,7 @@ namespace Ele.TyrannusConquest.CartographyTable.Utilities
         }
 
         public void PurgeWaypointGroups(IPlayer player) {
-            if (TyrConquestModSystem.purgeWpGroups) {
+            if (ModMain.purgeWpGroups) {
                 SetWaypointMapLayer();
                 var allWaypointsWithGroupId = WaypointMapLayer.Waypoints.FindAll(UserWaypoint => UserWaypoint.OwningPlayerGroupId != -1);
                 if (allWaypointsWithGroupId.Count > 0) {

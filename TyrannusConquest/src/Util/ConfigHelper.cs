@@ -1,9 +1,9 @@
-using Ele.Configuration;
 using System;
 using System.IO;
 using Vintagestory.API.Common;
+using static Ele.TyrannusConquest.ModConstants;
 
-namespace Ele.TyrannusConquest.Configuration
+namespace Ele.Configuration
 {
     //Courtesy of https://github.com/Craluminum-Mods/ && https://github.com/Chronolegionnaire/
     public static class ConfigHelper
@@ -15,8 +15,8 @@ namespace Ele.TyrannusConquest.Configuration
         public static string GetConfigPath(ICoreAPI api, string configName = null)
         {
             return configName == null ? 
-                $"{ModConstants.modName}.json" : 
-                Path.Combine(api.GetOrCreateDataPath(ModConstants.modName), $"{configName}.json");
+                $"{modName}.json" : 
+                Path.Combine(api.GetOrCreateDataPath(modName), $"{configName}.json");
         }
 
         /// <summary>

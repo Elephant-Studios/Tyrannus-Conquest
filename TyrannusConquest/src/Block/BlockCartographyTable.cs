@@ -3,14 +3,11 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Util;
 using Vintagestory.API.Client;
 using System.Collections.Generic;
-using Ele.TyrannusConquest.CartographyTable.BlockEntities;
-using Ele.TyrannusConquest;
-
 /*
 * The namespace the class will be in. This is essentially the folder the script is found in.
 * If you need to use the BlockCartographyTable class in any other script, you will have to add 'using VSTutorial.Blocks' to that script.
 */
-namespace Ele.TyrannusConquest.CartographyTable.Blocks
+namespace Ele.TyrannusConquest
 {
     /*
     * The class definition. Here, you define BlockCartographyTable as a child of Block, which
@@ -38,14 +35,14 @@ namespace Ele.TyrannusConquest.CartographyTable.Blocks
                     {
                         new WorldInteraction()
                         {
-                            ActionLangCode = "kscartographytable:blockhelp-cartography-table-share-map",
+                            ActionLangCode = "tyrconquest:blockhelp-cartography-table-share-map",
                             HotKeyCode = null,
                             MouseButton = EnumMouseButton.Right,
                             Itemstacks = inkAndQuillStackList.ToArray()
                         },
                         new WorldInteraction()
                         {
-                            ActionLangCode = "kscartographytable:blockhelp-cartography-table-update-map",
+                            ActionLangCode = "tyrconquest:blockhelp-cartography-table-update-map",
                             HotKeyCode = "sprint",                        
                             MouseButton = EnumMouseButton.Right,
                             Itemstacks = inkAndQuillStackList.ToArray()
@@ -64,7 +61,7 @@ namespace Ele.TyrannusConquest.CartographyTable.Blocks
                 ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
                 if (slot.Itemstack != null && slot.Itemstack.Collectible.FirstCodePart() == "inkandquill" && !byPlayer.Entity.Controls.Sneak) {      
                     return BlockEntityCartographyTable.OnPlayerInteract(world, byPlayer, blockSel);
-                } else if(TyrConquestModSystem.purgeWpGroups) {
+                } else if(ModMain.purgeWpGroups) {
                     return BlockEntityCartographyTable.OnPurgeWaypointGroups(world, byPlayer, blockSel);
                 }
                 return base.OnBlockInteractStart(world, byPlayer, blockSel);

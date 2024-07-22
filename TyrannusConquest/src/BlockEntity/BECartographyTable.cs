@@ -5,15 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Ele.TyrannusConquest.CartographyTable.GameContent;
-using Ele.TyrannusConquest.CartographyTable.Utilities;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
+using static Vintagestory.GameContent.ProPickWorkSpace;
 
-namespace Ele.TyrannusConquest.CartographyTable.BlockEntities
+namespace Ele.TyrannusConquest
 {
     /*
     * The class definition. Here, you define BlockCartographyTable as a child of Block, which
@@ -25,7 +24,6 @@ namespace Ele.TyrannusConquest.CartographyTable.BlockEntities
         private ICoreClientAPI CoreClientAPI;
         public CartographyHelper CartographyHelper;
         private List<CartographyWaypoint> Waypoints;
-
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
@@ -50,7 +48,7 @@ namespace Ele.TyrannusConquest.CartographyTable.BlockEntities
 
         internal bool OnPurgeWaypointGroups(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
-            if (CoreServerAPI != null && TyrConquestModSystem.purgeWpGroups) {
+            if (CoreServerAPI != null && ModMain.purgeWpGroups) {
                 CartographyHelper.PurgeWaypointGroups(byPlayer);
             }
             return true;
@@ -65,6 +63,7 @@ namespace Ele.TyrannusConquest.CartographyTable.BlockEntities
                     MarkDirty();
                 } else if (byPlayer.Entity.Controls.Sprint) {
                     CartographyHelper.updateWaypoints(byPlayer as IServerPlayer);
+
                 }
             }
             if (CoreClientAPI != null) {
@@ -75,9 +74,9 @@ namespace Ele.TyrannusConquest.CartographyTable.BlockEntities
         }
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc) {
             if (Waypoints != null && Waypoints.Count > 0) {
-                dsc.AppendLine(Lang.Get("kscartographytable:gui-waypoint-count", Waypoints.Count));
+                dsc.AppendLine(Lang.Get("tyrconquest:gui-waypoint-count", Waypoints.Count));
             } else {
-                dsc.AppendLine(Lang.Get("kscartographytable:gui-empty-map"));
+                dsc.AppendLine(Lang.Get("tyrconquest:gui-empty-map"));
             }
         }
 

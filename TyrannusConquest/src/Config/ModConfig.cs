@@ -4,7 +4,7 @@ using Vintagestory.API.Common;
 using Ele.Configuration;
 
 
-namespace Ele.VSModTemplate
+namespace Ele.TyrannusConquest
 {
     public class ModConfig : IModConfig
     {

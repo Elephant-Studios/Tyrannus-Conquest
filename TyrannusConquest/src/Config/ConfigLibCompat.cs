@@ -1,13 +1,12 @@
-﻿using static Ele.TyrannusConquest.ModConstants;
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using Vintagestory.API.Config;
 using Vintagestory.API.Common;
 using ConfigLib;
 using ImGuiNET;
-using Ele.TyrannusConquest.Configuration;
-using Ele.TyrannusConquest;
+using static Ele.TyrannusConquest.ModConstants;
+using Ele.Configuration;    
 
 namespace Ele.TyrannusConquest
 {
@@ -29,13 +28,13 @@ namespace Ele.TyrannusConquest
 
         private void EditConfig(string id, ControlButtons buttons, ICoreAPI api)
         {
-            if (buttons.Save) LoadedConfig = ConfigHelper.UpdateConfig(api, LoadedConfig);
-            if (buttons.Restore) LoadedConfig = ConfigHelper.ReadConfig<ModConfig>(api, ConfigHelper.GetConfigPath(api));
-            if (buttons.Defaults) LoadedConfig = new(api);
-            Edit(api, LoadedConfig, id);
+            if (buttons.Save) ModMain.LoadedConfig = ConfigHelper.UpdateConfig(api, ModMain.LoadedConfig);
+            if (buttons.Restore) ModMain.LoadedConfig = ConfigHelper.ReadConfig<ModConfig>(api, ConfigHelper.GetConfigPath(api));
+            if (buttons.Defaults) ModMain.LoadedConfig = new(api);
+            Edit(api, ModMain.LoadedConfig, id);
         }
 
-        private void Edit(ICoreAPI api, Config config, string id)
+        private void Edit(ICoreAPI api, ModConfig config, string id)
         {
             ImGui.TextWrapped(Lang.Get(modDomain + ":mod-title"));
 

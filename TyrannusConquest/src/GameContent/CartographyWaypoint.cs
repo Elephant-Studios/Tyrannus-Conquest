@@ -2,22 +2,25 @@ using Vintagestory.GameContent;
 using Vintagestory.API.Common;
 using System;
 
-namespace Ele.TyrannusConquest.CartographyTable.GameContent
+namespace Ele.TyrannusConquest
 {
-    public class CartographyWaypoint : Waypoint {
+    public class CartographyWaypoint : Waypoint
+    {
         public string CreatedByPlayerUid;
         public string ModifiedByPlayerUid;
         public string SharedTitle;
         public DateTime? Created;
         public DateTime? Modified;
 
-        public CartographyWaypoint (Waypoint waypoint, IPlayer player)
+        public CartographyWaypoint(Waypoint waypoint, IPlayer player)
         {
             Created = DateTime.Now;
-            if (player != null) {
+            if (player != null)
+            {
                 CreatedByPlayerUid = player.PlayerUID;
             }
-            if (waypoint != null) {
+            if (waypoint != null)
+            {
                 Color = waypoint.Color;
                 Guid = waypoint.Guid;
                 Icon = waypoint.Icon;
@@ -33,25 +36,31 @@ namespace Ele.TyrannusConquest.CartographyTable.GameContent
             }
         }
 
-        public bool CorrespondsTo(Waypoint waypoint) {
+        public bool CorrespondsTo(Waypoint waypoint)
+        {
             return Position.Equals(waypoint.Position);
         }
 
-        public bool CreatedBy(IPlayer player) {
+        public bool CreatedBy(IPlayer player)
+        {
             return CreatedByPlayerUid == player.PlayerUID;
         }
 
-        public bool OwnedBy(IPlayer player) {
+        public bool OwnedBy(IPlayer player)
+        {
             return OwningPlayerUid == player.PlayerUID;
         }
 
-        public bool ModifiedBy(IPlayer player) {
+        public bool ModifiedBy(IPlayer player)
+        {
             return ModifiedByPlayerUid == player.PlayerUID;
         }
 
 
-        public bool ContentEqualTo(Waypoint waypoint) {
+        public bool ContentEqualTo(Waypoint waypoint)
+        {
             return Icon == waypoint.Icon && Color == waypoint.Color && Title == waypoint.Title && Pinned == waypoint.Pinned;
         }
     }
 }
+
